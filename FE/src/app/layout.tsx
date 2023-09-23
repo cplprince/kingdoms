@@ -1,5 +1,3 @@
-"use client";
-
 import { Providers } from "@/store/providers";
 import "./globals.css";
 
