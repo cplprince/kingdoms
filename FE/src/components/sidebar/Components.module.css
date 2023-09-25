@@ -3,7 +3,7 @@
 }
 
 .sidebarDivImg {
-    @apply w-10 h-10 rounded-full flex justify-center items-center cursor-pointer mx-auto border-4 border-primary-first hover:rounded-md  transition-all  duration-200 ease-in-out
+    @apply w-10 h-10 rounded-full flex justify-center items-center cursor-pointer mx-auto border-4 border-primary-first hover:rounded-md  transition-all  duration-200 ease-in-out m-3
 }
 
 .sidebarImg {
