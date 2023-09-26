@@ -13,6 +13,15 @@
 		"update": "npm run update",
 		"postupdate": "npm install"
   },
+  	"lint-staged": {
+		"*.css": [
+			"stylelint --fix --cache"
+		],
+		"*.{ts,tsx}": [
+			"tsc-files --project tsconfig.json --noEmit --incremental false next-env.d.ts",
+			"eslint --cache --fix"
+		]
+	},
   "dependencies": {
     "@reduxjs/toolkit": "^1.9.5",
     "@superkoders/prettier-config": "^0.2.6",
