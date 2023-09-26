@@ -9,19 +9,19 @@
     "lint": "next lint",
     "orval": "orval",
     "prepare": "husky install",
-		"preupdate": "npx npm-check-updates -u",
-		"update": "npm run update",
-		"postupdate": "npm install"
+    "preupdate": "npx npm-check-updates -u",
+    "update": "npm run update",
+    "postupdate": "npm install"
   },
-  	"lint-staged": {
-		"*.css": [
-			"stylelint --fix --cache"
-		],
-		"*.{ts,tsx}": [
-			"tsc-files --project tsconfig.json --noEmit --incremental false next-env.d.ts",
-			"eslint --cache --fix"
-		]
-	},
+  "lint-staged": {
+    "*.css": [
+      "stylelint --fix --cache"
+    ],
+    "*.{ts,tsx}": [
+      "tsc-files --project tsconfig.json --noEmit --incremental false next-env.d.ts",
+      "eslint --cache --fix"
+    ]
+  },
   "dependencies": {
     "@reduxjs/toolkit": "^1.9.5",
     "@superkoders/prettier-config": "^0.2.6",
@@ -49,6 +49,7 @@
     "typescript": "5.2.2"
   },
   "devDependencies": {
-    "orval": "^6.17.0"
+    "orval": "^6.17.0",
+    "husky": "^8.0.0"
   }
 }
