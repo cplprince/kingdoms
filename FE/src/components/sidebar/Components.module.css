@@ -1,0 +1,11 @@
+.sidebarContainer {
+    @apply h-full flex   border-solid border-8 border-primary-first bg-white fixed
+}
+
+.sidebarDivImg {
+    @apply w-10 h-10 rounded-full flex justify-center items-center cursor-pointer mx-auto border-4 border-primary-first hover:rounded-md  transition-all  duration-200 ease-in-out m-3
+}
+
+.sidebarImg {
+    @apply w-full h-full rounded-full object-contain hover:rounded-none  duration-200 ease-in-out 
+}
