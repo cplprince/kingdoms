@@ -6,7 +6,7 @@ import styles from './Components.module.css';
 
 export const Sidebar: FC = () => {
 	const sidebarContent = cn('bg-primary-second', 'p-5');
-
+	const x = 0;
 	return (
 		<div className={styles.sidebarContainer}>
 			<div className={sidebarContent}>
