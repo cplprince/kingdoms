@@ -1,14 +1,7 @@
 module.exports = {
 	root: true,
-	extends: [
-		'eslint:recommended',
-		'next',
-		'plugin:@typescript-eslint/eslint-recommended',
-		'plugin:@typescript-eslint/recommended',
-		'plugin:prettier/recommended',
-	],
+	extends: ['eslint:recommended', 'next', 'plugin:@typescript-eslint/eslint-recommended', 'plugin:@typescript-eslint/recommended'],
 	rules: {
-		'prettier/prettier': ['warn', {}, { usePrettierrc: true }],
 		'@typescript-eslint/explicit-module-boundary-types': 'off',
 		'@typescript-eslint/ban-ts-comment': 'off',
 	},
