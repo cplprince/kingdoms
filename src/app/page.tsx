@@ -4,6 +4,8 @@ import { Inventory } from '@/components/inventory/Inventory';
 import { Sidebar } from '@/components/sidebar/Sidebar';
 import { useModal } from '../hooks/useModal';
 import { cn } from '../../lib/utils';
+import { Card } from '@/components/card/Card';
+import { Sidebar } from '@/components/sidebar/Sidebar';
 
 export default function Home() {
 	const { isOpen, toggle } = useModal();
@@ -16,8 +18,11 @@ export default function Home() {
 	}
 
 	return (
-		<main>
+		<main className="absolute">
 			<Sidebar />
+			<div className="mx-auto flex items-center justify-center">
+				<Card />
+			</div>
 			<div className={inventoryContainer}>
 				<button className={buttonInventory} onClick={toggle}>
 					Inventory
