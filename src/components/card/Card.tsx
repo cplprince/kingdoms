@@ -1,4 +1,8 @@
 import { FC } from 'react';
+import Image from 'next/image';
+
+import styles from './Components.module.css';
+import { cn } from '../../../lib/utils';
 
 type ActivityInfoItems = {
 	type: string;
@@ -19,14 +23,18 @@ type CardProps = {
 
 export const Card: FC<CardProps> = ({ data }) => {
 	const { name, imgUrl, items } = data;
+	const typoName = cn('font-bold');
+	const textCard = cn('font-mono');
 
 	return (
-		<div className="px-14 py-5   bg-primary-second relative  rounded-xl shadow-xl  border-solid border-8 border-primary-first ">
-			<div className="flex justify-center items-center flex-col text-black">
-				<h5>Name: {name}</h5>
-				<div>{imgUrl}</div>
+		<div className={styles.cardContainer}>
+			<div className={styles.cardContent}>
+				<div className={typoName}>Name: {name}</div>
+				<div className={styles.imgContainer}>
+					<Image src={imgUrl} alt={name} width={100} height={100} className={styles.img} />
+				</div>
 				{items.map((item, index) => (
-					<div key={index}>
+					<div key={index} className={textCard}>
 						<div>Type: {item.type}</div>
 						<div>Level required: {item.reqLvl}</div>
 						<div>Level gain: {item.lvlGain}</div>

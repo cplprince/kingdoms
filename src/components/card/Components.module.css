@@ -1,0 +1,15 @@
+.cardContainer {
+	@apply px-14 py-5 bg-primary-second relative  rounded-xl shadow-xl  border-solid border-8 border-primary-first;
+}
+
+.cardContent {
+	@apply flex justify-center items-center flex-col text-black;
+}
+
+.imgContainer {
+	@apply w-12 h-12 rounded-full flex justify-center items-center  mx-auto border-4 border-primary-first  m-3;
+}
+
+.img {
+	@apply w-full h-full rounded-full object-cover hover:rounded-none  duration-200 ease-in-out m-3;
+}
