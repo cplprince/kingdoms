@@ -1,9 +1,39 @@
-import React from 'react';
+import { FC } from 'react';
 
-export const Card = () => {
+type ActivityInfoItems = {
+	type: string;
+	reqLvl: number;
+	lvlGain: number;
+	time: number;
+};
+
+type ActivityItems = {
+	name: string;
+	imgUrl: string;
+	items: ActivityInfoItems[];
+};
+
+type CardProps = {
+	data: ActivityItems;
+};
+
+export const Card: FC<CardProps> = ({ data }) => {
+	const { name, imgUrl, items } = data;
+
 	return (
-		<div className="px-14 py-5  transition-all duration-300 ease-linear bg-primary-second relative hover:rounded-md rounded-xl shadow-xl hover:-translate-y-1 break-all; border-solid border-8 border-primary-first ">
-			<div className="flex justify-center items-center flex-col text-black">ahoj</div>
+		<div className="px-14 py-5   bg-primary-second relative  rounded-xl shadow-xl  border-solid border-8 border-primary-first ">
+			<div className="flex justify-center items-center flex-col text-black">
+				<h5>Name: {name}</h5>
+				<div>{imgUrl}</div>
+				{items.map((item, index) => (
+					<div key={index}>
+						<div>Type: {item.type}</div>
+						<div>Level required: {item.reqLvl}</div>
+						<div>Level gain: {item.lvlGain}</div>
+						<div>Time required: {item.time}</div>
+					</div>
+				))}
+			</div>
 		</div>
 	);
 };

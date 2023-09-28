@@ -6,6 +6,7 @@ import { useModal } from '../hooks/useModal';
 import { cn } from '../../lib/utils';
 import { Card } from '@/components/card/Card';
 import { Sidebar } from '@/components/sidebar/Sidebar';
+import { activityInfo } from '../mocks/CardMocks';
 
 export default function Home() {
 	const { isOpen, toggle } = useModal();
@@ -18,10 +19,16 @@ export default function Home() {
 	}
 
 	return (
-		<main className="absolute">
+		<main className="">
 			<Sidebar />
-			<div className="mx-auto flex items-center justify-center">
-				<Card />
+			<div className=" absolute mt-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-4 ml-40 place-items-center">
+				{activityInfo.map((data, index) => {
+					return (
+						<div key={index}>
+							<Card data={data} />
+						</div>
+					);
+				})}
 			</div>
 			<div className={inventoryContainer}>
 				<button className={buttonInventory} onClick={toggle}>
