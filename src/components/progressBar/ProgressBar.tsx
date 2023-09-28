@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import styles from './Components.module.css';
 
 export const ProgressBar = () => {
@@ -26,6 +26,17 @@ export const ProgressBar = () => {
 			return '#2ecc71';
 		}
 	};
+
+	useEffect(() => {
+		if (progress < 100) {
+			setInterval(() => {
+				setProgress(progress + 20);
+			}, 5000);
+		} else {
+			handleOnReset();
+		}
+	}, [progress]);
+
 	return (
 		<div className={styles.container}>
 			<div className={styles.progressBar}>
