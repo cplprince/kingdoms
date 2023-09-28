@@ -1,11 +1,13 @@
-"use client";
+'use client';
 
-import { Sidebar } from "@/components/sidebar/Sidebar";
+import { ProgressBar } from '@/components/progressBar/ProgressBar';
+import { Sidebar } from '@/components/sidebar/Sidebar';
 
 export default function Home() {
-  return (
-    <main>
-      <Sidebar />
-    </main>
-  );
+	return (
+		<main>
+			<Sidebar />
+			<ProgressBar />
+		</main>
+	);
 }

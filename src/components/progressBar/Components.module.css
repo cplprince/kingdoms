@@ -1,0 +1,15 @@
+.container {
+	@apply w-96 mt-96 ml-32;
+}
+
+.progressBar {
+	@apply w-full h-32 rounded-md bg-white mb-10;
+}
+
+.progressBarFill {
+	@apply h-full rounded-md bg-green-500 ease-out;
+}
+
+.progessLabel {
+	@apply mt-12 text-black;
+}
