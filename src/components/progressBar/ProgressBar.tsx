@@ -3,6 +3,7 @@ import styles from './Components.module.css';
 
 export const ProgressBar = () => {
 	const [progress, setProgress] = useState(0);
+	const [isFinished, setIsFinished] = useState(false);
 
 	const handleOnClick = () => {
 		if (progress < 100) {
@@ -28,14 +29,16 @@ export const ProgressBar = () => {
 	};
 
 	useEffect(() => {
-		if (progress < 100) {
+		if (progress < 100 && !isFinished) {
 			setInterval(() => {
 				setProgress(progress + 20);
 			}, 5000);
-		} else {
+		} else if (progress === 100) {
+			setIsFinished(true);
+			console.log('is finishd', isFinished);
 			handleOnReset();
 		}
-	}, [progress]);
+	}, [isFinished, progress]);
 
 	return (
 		<div className={styles.container}>
