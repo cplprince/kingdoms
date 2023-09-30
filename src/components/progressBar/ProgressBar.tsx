@@ -5,18 +5,12 @@ export const ProgressBar = () => {
 	const [progress, setProgress] = useState(0);
 	const [isFinished, setIsFinished] = useState(false);
 
-	const handleOnClick = () => {
-		if (progress < 100) {
-			setProgress(progress + 20);
-		}
-	};
-
 	const handleOnReset = () => {
 		setProgress(0);
 	};
 
 	const getColor = () => {
-		if (progress == 100) {
+		if (progress === 100) {
 			handleOnReset();
 		}
 		if (progress < 40) {
@@ -27,15 +21,21 @@ export const ProgressBar = () => {
 			return '#2ecc71';
 		}
 	};
-
+	const time = 10000;
 	useEffect(() => {
 		if (progress < 100 && !isFinished) {
-			setInterval(() => {
-				setProgress(progress + 20);
-			}, 5000);
+			const intervalId = setTimeout(() => {
+				setProgress((prevProgress) => {
+					if (prevProgress + 1 >= 100) {
+						setIsFinished(true);
+						return 100;
+					}
+					return prevProgress + 1;
+				});
+			}, time / 100);
+			return () => clearTimeout(intervalId);
 		} else if (progress === 100) {
 			setIsFinished(true);
-			console.log('is finishd', isFinished);
 			handleOnReset();
 		}
 	}, [isFinished, progress]);
@@ -43,15 +43,11 @@ export const ProgressBar = () => {
 	return (
 		<div className={styles.container}>
 			<div className={styles.progressBar}>
-				<div className={styles.progressBarFill} style={{ width: `${progress}%`, background: getColor() }}></div>
+				<div className={styles.progressBarFill} style={{ width: `${progress}%`, background: getColor() }}>
+					<div>{progress}</div>
+				</div>
 			</div>
 			<div className={styles.progessLabel}>{progress}</div>
-			<button onClick={handleOnClick} className="ml-32">
-				Progress
-			</button>
-			<button onClick={handleOnReset} className="ml-32">
-				Reset
-			</button>
 		</div>
 	);
 };
