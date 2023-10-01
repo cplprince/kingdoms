@@ -7,7 +7,7 @@ export default function Home() {
 	return (
 		<main>
 			<Sidebar />
-			<ProgressBar />
+			<ProgressBar time={10000} />
 		</main>
 	);
 }

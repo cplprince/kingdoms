@@ -1,7 +1,12 @@
-import React, { useEffect, useState } from 'react';
+import { FC, useEffect, useState } from 'react';
 import styles from './Components.module.css';
 
-export const ProgressBar = () => {
+type Props = {
+	time: number;
+	onHandleFinished?: (isFinished: boolean) => void;
+};
+
+export const ProgressBar: FC<Props> = ({ time, onHandleFinished }) => {
 	const [progress, setProgress] = useState(0);
 	const [isFinished, setIsFinished] = useState(false);
 
@@ -21,13 +26,14 @@ export const ProgressBar = () => {
 			return '#2ecc71';
 		}
 	};
-	const time = 10000;
+
 	useEffect(() => {
 		if (progress < 100 && !isFinished) {
 			const intervalId = setTimeout(() => {
 				setProgress((prevProgress) => {
 					if (prevProgress + 1 >= 100) {
 						setIsFinished(true);
+						onHandleFinished && onHandleFinished(isFinished);
 						return 100;
 					}
 					return prevProgress + 1;
@@ -38,16 +44,15 @@ export const ProgressBar = () => {
 			setIsFinished(true);
 			handleOnReset();
 		}
-	}, [isFinished, progress]);
+	}, [isFinished, onHandleFinished, progress, time]);
 
 	return (
 		<div className={styles.container}>
 			<div className={styles.progressBar}>
 				<div className={styles.progressBarFill} style={{ width: `${progress}%`, background: getColor() }}>
-					<div>{progress}</div>
+					<div className={styles.progressLabel}>{progress}%</div>
 				</div>
 			</div>
-			<div className={styles.progessLabel}>{progress}</div>
 		</div>
 	);
 };
