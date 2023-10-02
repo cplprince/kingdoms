@@ -1,5 +1,5 @@
 .container {
-	@apply w-40 mt-96 ml-32 absolute;
+	@apply w-40 mt-96 ml-32 absolute  h-6 rounded-md bg-gray-400 mb-10;
 }
 
 .progressBar {
@@ -7,7 +7,7 @@
 }
 
 .progressBarFill {
-	@apply h-full rounded-md bg-green-500 ease-out;
+	@apply rounded-md;
 }
 
 .progressLabel {

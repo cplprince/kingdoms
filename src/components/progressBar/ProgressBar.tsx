@@ -49,10 +49,8 @@ export const ProgressBar: FC<Props> = ({ time, onHandleFinished }) => {
 
 	return (
 		<div className={styles.container}>
-			<div className={styles.progressBar}>
-				<div className={styles.progressBarFill} style={{ width: `${progress}%`, background: getColor() }}>
-					<div className={styles.progressLabel}>{progress}%</div>
-				</div>
+			<div className={styles.progressBarFill} style={{ width: `${progress}%`, background: getColor() }}>
+				<div className={styles.progressLabel}>{progress}%</div>
 			</div>
 		</div>
 	);
