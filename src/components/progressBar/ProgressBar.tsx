@@ -29,8 +29,7 @@ export const ProgressBar: FC<Props> = ({ time, onHandleFinished }) => {
 
 	useEffect(() => {
 		if (progress >= 100 || isFinished) {
-			setIsFinished(true);
-			onHandleFinished(isFinished);
+			onHandleFinished(true);
 			handleOnReset();
 			return;
 		}
