@@ -1,7 +1,8 @@
+import { Roboto, Roboto_Mono } from 'next/font/google';
+
 import { Providers } from '../../lib/providers';
 import { cn } from '../../lib/utils';
 import './globals.css';
-import { Roboto, Roboto_Mono } from 'next/font/google';
 
 export const roboto = Roboto_Mono({
 	subsets: ['latin'],
