@@ -3,7 +3,7 @@ import styles from './Components.module.css';
 
 type Props = {
 	time: number;
-	onHandleFinished?: (isFinished: boolean) => void;
+	onHandleFinished: (isFinished: boolean) => void;
 };
 
 export const ProgressBar: FC<Props> = ({ time, onHandleFinished }) => {
@@ -28,22 +28,24 @@ export const ProgressBar: FC<Props> = ({ time, onHandleFinished }) => {
 	};
 
 	useEffect(() => {
-		if (progress < 100 && !isFinished) {
-			const intervalId = setTimeout(() => {
-				setProgress((prevProgress) => {
-					if (prevProgress + 1 >= 100) {
-						setIsFinished(true);
-						onHandleFinished && onHandleFinished(isFinished);
-						return 100;
-					}
-					return prevProgress + 1;
-				});
-			}, time / 100);
-			return () => clearTimeout(intervalId);
-		} else if (progress === 100) {
+		if (progress >= 100 || isFinished) {
 			setIsFinished(true);
+			onHandleFinished(isFinished);
 			handleOnReset();
+			return;
 		}
+
+		const intervalId = setTimeout(() => {
+			setProgress((prevProgress) => {
+				if (prevProgress + 1 >= 100) {
+					setIsFinished(true);
+					return 100;
+				}
+				return prevProgress + 1;
+			});
+		}, time / 100);
+
+		return () => clearTimeout(intervalId);
 	}, [isFinished, onHandleFinished, progress, time]);
 
 	return (
