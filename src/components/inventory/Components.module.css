@@ -1,0 +1,11 @@
+.inventoryContainer {
+	@apply border-8 border-primary-first bg-primary-second p-4;
+}
+
+.inventoryContent {
+	@apply grid grid-cols-12 gap-4;
+}
+
+.inventoryItem {
+	@apply border-4 border-primary-first p-2 text-black w-20 h-20;
+}
