@@ -6,7 +6,7 @@ export const activityInfo = [
 			{
 				type: 'oak wood',
 				reqLvl: 0,
-				lvlGain: 1,
+				xpGain: 1,
 				time: 8000,
 			},
 		],
@@ -18,7 +18,7 @@ export const activityInfo = [
 			{
 				type: 'corn',
 				reqLvl: 0,
-				lvlGain: 1,
+				xpGain: 1,
 				time: 5000,
 			},
 		],
@@ -30,7 +30,7 @@ export const activityInfo = [
 			{
 				type: 'corn',
 				reqLvl: 0,
-				lvlGain: 1,
+				xpGain: 1,
 				time: 5000,
 			},
 		],
@@ -42,7 +42,7 @@ export const activityInfo = [
 			{
 				type: 'corn',
 				reqLvl: 0,
-				lvlGain: 1,
+				xpGain: 1,
 				time: 5000,
 			},
 		],
@@ -54,7 +54,7 @@ export const activityInfo = [
 			{
 				type: 'corn',
 				reqLvl: 0,
-				lvlGain: 1,
+				xpGain: 1,
 				time: 5000,
 			},
 		],

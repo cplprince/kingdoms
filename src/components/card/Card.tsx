@@ -7,7 +7,7 @@ import styles from './Components.module.css';
 type ActivityInfoItems = {
 	type: string;
 	reqLvl: number;
-	lvlGain: number;
+	xpGain: number;
 	time: number;
 };
 
@@ -45,7 +45,7 @@ export const Card: FC<CardProps> = ({ data: { name, imgUrl, items } }) => {
 						<div key={index} className={roboto.className}>
 							<p>Type: {item.type}</p>
 							<p>Level required: {item.reqLvl}</p>
-							<p>Level gain: {item.lvlGain}</p>
+							<p>Xp gain: {item.xpGain}</p>
 							<p>Time required: {item.time}</p>
 						</div>
 					))}
