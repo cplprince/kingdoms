@@ -21,8 +21,7 @@ type CardProps = {
 	data: ActivityItems;
 };
 
-export const Card: FC<CardProps> = ({ data }) => {
-	const { name, imgUrl, items } = data;
+export const Card: FC<CardProps> = ({ data: { name, imgUrl, items } }) => {
 	const typoName = cn('font-bold');
 	const textCard = cn('font-mono');
 
