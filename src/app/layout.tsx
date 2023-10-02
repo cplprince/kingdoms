@@ -1,4 +1,5 @@
 import { Providers } from '../../lib/providers';
+import { cn } from '../../lib/utils';
 import './globals.css';
 import { Roboto, Roboto_Mono } from 'next/font/google';
 
@@ -12,10 +13,12 @@ export const typography = Roboto({
 });
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
+	const bodyContent = cn(`bg-black ${roboto.className}`);
+
 	return (
 		<Providers>
 			<html lang="en">
-				<body className={`bg-black ${roboto.className}`}>{children}</body>
+				<body className={bodyContent}>{children}</body>
 			</html>
 		</Providers>
 	);
