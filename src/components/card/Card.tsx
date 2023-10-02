@@ -32,21 +32,25 @@ const typography = Roboto({
 
 export const Card: FC<CardProps> = ({ data: { name, imgUrl, items } }) => {
 	return (
-		<div className={styles.cardContainer}>
+		<article className={styles.cardContainer}>
 			<div className={styles.cardContent}>
-				<div className={typography.className}>Name: {name}</div>
+				<header>
+					<h2 className={typography.className}>Name: {name}</h2>
+				</header>
 				<div className={styles.imgContainer}>
 					<Image src={imgUrl} alt={name} width={100} height={100} className={styles.img} />
 				</div>
-				{items.map((item, index) => (
-					<div key={index} className={roboto.className}>
-						<div>Type: {item.type}</div>
-						<div>Level required: {item.reqLvl}</div>
-						<div>Level gain: {item.lvlGain}</div>
-						<div>Time required: {item.time}</div>
-					</div>
-				))}
+				<section>
+					{items.map((item, index) => (
+						<div key={index} className={roboto.className}>
+							<p>Type: {item.type}</p>
+							<p>Level required: {item.reqLvl}</p>
+							<p>Level gain: {item.lvlGain}</p>
+							<p>Time required: {item.time}</p>
+						</div>
+					))}
+				</section>
 			</div>
-		</div>
+		</article>
 	);
 };
