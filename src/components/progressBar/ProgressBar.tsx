@@ -1,4 +1,4 @@
-import { FC, useEffect, useState } from 'react';
+import { FC, useEffect, useState, useCallback } from 'react';
 import styles from './Components.module.css';
 
 type Props = {
@@ -10,11 +10,11 @@ export const ProgressBar: FC<Props> = ({ time, onHandleFinished }) => {
 	const [progress, setProgress] = useState(0);
 	const [isFinished, setIsFinished] = useState(false);
 
-	const handleOnReset = () => {
+	const handleOnReset = useCallback(() => {
 		setProgress(0);
-	};
+	}, []);
 
-	const getColor = () => {
+	const getColor = useCallback(() => {
 		if (progress === 100) {
 			handleOnReset();
 		}
@@ -25,7 +25,7 @@ export const ProgressBar: FC<Props> = ({ time, onHandleFinished }) => {
 		} else {
 			return '#2ecc71';
 		}
-	};
+	}, [progress, handleOnReset]);
 
 	useEffect(() => {
 		if (progress >= 100 || isFinished) {
@@ -46,7 +46,7 @@ export const ProgressBar: FC<Props> = ({ time, onHandleFinished }) => {
 		}, time / 100);
 
 		return () => clearTimeout(intervalId);
-	}, [isFinished, onHandleFinished, progress, time]);
+	}, [handleOnReset, isFinished, onHandleFinished, progress, time]);
 
 	return (
 		<div className={styles.container}>
