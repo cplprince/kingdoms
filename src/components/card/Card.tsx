@@ -1,6 +1,6 @@
 import { FC } from 'react';
 import Image from 'next/image';
-import { Roboto, Roboto_Mono } from 'next/font/google';
+import { typography } from '../../app/layout';
 
 import styles from './Components.module.css';
 
@@ -21,15 +21,6 @@ type CardProps = {
 	data: ActivityItems;
 };
 
-const roboto = Roboto_Mono({
-	subsets: ['latin'],
-});
-
-const typography = Roboto({
-	subsets: ['latin'],
-	weight: ['700'],
-});
-
 export const Card: FC<CardProps> = ({ data: { name, imgUrl, items } }) => {
 	return (
 		<article className={styles.cardContainer}>
@@ -42,7 +33,7 @@ export const Card: FC<CardProps> = ({ data: { name, imgUrl, items } }) => {
 				</div>
 				<section>
 					{items.map((item, index) => (
-						<div key={index} className={roboto.className}>
+						<div key={index}>
 							<p>Type: {item.type}</p>
 							<p>Level required: {item.reqLvl}</p>
 							<p>Xp gain: {item.xpGain}</p>
