@@ -3,7 +3,7 @@ import styles from './Components.module.css';
 
 type Props = {
 	time: number;
-	onHandleFinished: (isFinished: boolean) => void;
+	onHandleFinished: () => void;
 };
 
 export const ProgressBar: FC<Props> = ({ time, onHandleFinished }) => {
@@ -29,7 +29,7 @@ export const ProgressBar: FC<Props> = ({ time, onHandleFinished }) => {
 
 	useEffect(() => {
 		if (progress >= 100 || isFinished) {
-			onHandleFinished(true);
+			onHandleFinished();
 			handleOnReset();
 			return;
 		}
