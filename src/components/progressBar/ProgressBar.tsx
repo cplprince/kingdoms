@@ -5,9 +5,10 @@ type Props = {
 	onHandleFinished: () => void;
 	styleProgressContainer: string;
 	styleLabel: string;
+	htmlFor: string;
 };
 
-export const ProgressBar: FC<Props> = ({ time, onHandleFinished, styleProgressContainer, styleLabel }) => {
+export const ProgressBar: FC<Props> = ({ time, onHandleFinished, styleProgressContainer, styleLabel, htmlFor }) => {
 	const [progress, setProgress] = useState(0);
 	const [isFinished, setIsFinished] = useState(false);
 
@@ -40,7 +41,7 @@ export const ProgressBar: FC<Props> = ({ time, onHandleFinished, styleProgressCo
 			<progress max={100} value={progress} className={styleProgressContainer}>
 				{progress}
 			</progress>
-			<label className={styleLabel} htmlFor="progress">{`${progress}%`}</label>
+			<label className={styleLabel} htmlFor={htmlFor}>{`${progress}%`}</label>
 		</>
 	);
 };
