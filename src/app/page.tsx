@@ -16,7 +16,7 @@ export default function Home() {
 	return (
 		<main>
 			<Sidebar />
-			<ProgressBar time={10000} onHandleFinished={handleFinished} />
+			<ProgressBar time={10000} onHandleFinished={handleFinished} styleProgressContainer="relative w-52 " styleLabel="pl-10" />
 		</main>
 	);
 }

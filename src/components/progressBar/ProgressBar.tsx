@@ -36,11 +36,11 @@ export const ProgressBar: FC<Props> = ({ time, onHandleFinished, styleProgressCo
 	}, [handleOnReset, isFinished, onHandleFinished, progress, time]);
 
 	return (
-		<div className={styleProgressContainer}>
-			<progress max={100} value={progress}>
+		<>
+			<progress max={100} value={progress} className={styleProgressContainer}>
 				{progress}
 			</progress>
 			<label className={styleLabel} htmlFor="progress">{`${progress}%`}</label>
-		</div>
+		</>
 	);
 };
